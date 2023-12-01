@@ -1,6 +1,13 @@
 terraform {
-  backend "s3" {
-    key            = "global/s3/terraform.tfstate"
+    backend "s3" {
+    # Replace this with your bucket name!
+    bucket         = "terraform-up-and-running-state-ph"
+    key            = "global/s3/mysql/terraform.tfstate"
+    region         = "us-east-2"
+
+    # Replace this with your DynamoDB table name!
+    dynamodb_table = "terraform-up-and-running-locks"
+    encrypt        = true
   }
 }
 
